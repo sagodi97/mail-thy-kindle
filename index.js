@@ -29,14 +29,15 @@ const michell = fs.readFileSync(pathToMichell).toString("base64");
 const pathToStories = `${__dirname}/books/stories.mobi`;
 const stories = fs.readFileSync(pathToStories).toString("base64");
 
-const message = Buffer.from(process.env.MSG, "base64").toString("utf8");
+const emailText = Buffer.from(process.env.MSG, "base64").toString("utf8");
+
 let message = {
   from: "santiago@memlernado.com",
   to: "",
   cc: process.env.KASIA_EMAIL,
   bcc: process.env.BCC,
   subject: "Books books books!",
-  text: message,
+  text: emailText,
   attachments: [
     {
       content: conde,
